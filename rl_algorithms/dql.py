@@ -261,12 +261,13 @@ class DQLearning():
 
             # (9) Input the predicted tensor and the target tensor into
             # a loss function to get the loss. For this, all you
-            # need to do is uncomment the line below, replace
+            # need to do is uncomment the lines below, replace
             # the predicted_tensor variable with the state output
             # tensor from step (2), and replace the target_tensor
             # variable with the updated cloned tensor from step (8).
 
-            # loss = torch.nn.MSELoss(predicted_tensor, target_tensor).to(DEVICE)
+            # criterion = torch.nn.MSELoss()
+            # loss = criterion(predicted_tensor, target_tensor).to(DEVICE)
 
             # (10) Use the loss to update the main neural network's weights
             # through backpropagation. For this all you need to do is

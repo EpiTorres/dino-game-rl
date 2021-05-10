@@ -363,7 +363,7 @@ function helpful.*
 >
 > - Calculate the new Q-Value for the given state-action pair using the Bellman
 equation:
->   - *New Q-value = Old Q-Value + Alpha * (Reward + Gamma * Max Q-Value For Next State - Old Q-Value)*
+>$$ \text{New Q-value} = \text{Old Q-Value} + \alpha \cdot ( \text{Reward} + \gamma \cdot \text{Max Q-Value for next state} - \text{Old Q-Value})$$
 >
 > - Replace the current Q-Value in the Q-Table for the current state-action 
 pair with the new Q-Value.
@@ -405,7 +405,6 @@ to see what might be going wrong.
 If you're implementation runs with no issues, the Q-Learning dino should
 behave something like this after being trained on 10000
 episodes:
-
 ![Q-Learning agent after 10000 training episodes!](/assets/dino_game_ql10000.gif "Q-Learning agent after 10000 training episodes!")
 
 **Don't forget** to deactivate your virtual environment when you are done training
@@ -610,7 +609,7 @@ from the network.
 [item](https://pytorch.org/docs/stable/tensors.html#torch.Tensor.item) functions helpful.*
 > - Calculate the target reward for the current action by using the
 following equation:
->   - *Target Reward = Gamma * Max Value In The Next State's Output Tensor*
+> $$\text{target reward} = \gamma \cdot \text{max value in the next state's output tensor} $$
 > 
 > - [Clone](https://pytorch.org/docs/stable/tensors.html#torch.Tensor.clone)
 the current state's output tensor.
@@ -624,7 +623,8 @@ calculated target reward.
 tensor into a loss function to get the loss. 
 For this part, you should first uncomment the following line:
 >   ``` python
->   loss = torch.nn.MSELoss(predicted_tensor, target_tensor).to(DEVICE)
+>   criterion = torch.nn.MSELoss()
+>   loss = criterion(predicted_tensor, target_tensor).to(DEVICE)
 >   ```
 >   Then you should replace the ```predicted_tensor``` and ```target_tensor```
 variables with your state's output tensor and updated cloned tensor variables
@@ -706,7 +706,6 @@ to double-check your implementation.
 If your implementation runs with no issues, the Deep Q-Learning
 dino should behave something like this after being trained on 200
 episodes:
-
 ![Deep Q-Learning agent after 200 training episodes!](/assets/dino_game_dql200.gif "Deep Q-Learning agent after 200 training episodes!")
 
 **Don't forget** to deactivate your virtual environment when you are done training

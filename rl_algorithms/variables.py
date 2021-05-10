@@ -93,8 +93,8 @@ def init_ql():
     ql_params = dict()
 
     # Hyperparameters for Q-table
-    ql_params['alpha'] = 0.9  # Learning rate
-    ql_params['gamma'] = 0.25  # Discount term
+    ql_params['alpha'] = 0.75  # Learning rate
+    ql_params['gamma'] = 0.5  # Discount term
 
     # Misc. params
     ql_params['qtable_file'] = 'qtable.csv'  # File with saved qtable
