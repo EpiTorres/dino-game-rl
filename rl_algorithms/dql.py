@@ -248,9 +248,12 @@ class DQLearning():
             # (4) Calculate the max value from the state's output tensor
             # from step (3).
 
-            # (5) Calculate the target reward for the current action using the
+            # (5) If the value of done is false, 
+            # calculate the target reward for the current action using the
             # following equation:
-            #       reward = gamma * max value from step (4)
+            #       target reward = reward + gamma * max value from step (4)
+            # Otherwise, simply set the target reward to be equal to the reward
+            # from the current experience in the minibatch.
 
             # (6) Clone the output tensor from step (2).
 

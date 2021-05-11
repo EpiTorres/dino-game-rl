@@ -363,7 +363,7 @@ function helpful.*
 >
 > - Calculate the new Q-Value for the given state-action pair using the Bellman
 equation:
->$$ \text{New Q-value} = \text{Old Q-Value} + \alpha \cdot ( \text{Reward} + \gamma \cdot \text{Max Q-Value for next state} - \text{Old Q-Value})$$
+>   - *New Q-value = Old Q-Value + alpha \* (Reward + gamma \* Max Q-Value for Next State - Old Q-Value)*
 >
 > - Replace the current Q-Value in the Q-Table for the current state-action 
 pair with the new Q-Value.
@@ -607,10 +607,12 @@ from the network.
 *Hint: you may find PyTorch's 
 [max](https://pytorch.org/docs/stable/generated/torch.max.html#torch.max) and
 [item](https://pytorch.org/docs/stable/tensors.html#torch.Tensor.item) functions helpful.*
-> - Calculate the target reward for the current action by using the
-following equation:
-> $$\text{target reward} = \gamma \cdot \text{max value in the next state's output tensor} $$
-> 
+> - If the value of the done variable is false, calculate the target reward for the current action by using the following equation:
+>
+>   - *Target Reward = Reward + gamma \* Max Value in the Next state's Output Tensor*
+>
+>   Otherwise, simply set the target reward to be equal to the reward from the current experience in the minibatch.
+>
 > - [Clone](https://pytorch.org/docs/stable/tensors.html#torch.Tensor.clone)
 the current state's output tensor.
 > 
